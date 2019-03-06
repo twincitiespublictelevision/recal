@@ -175,6 +175,10 @@ class CalendarController extends React.PureComponent {
 				month: nextMonth,
 				year: nextYear
 			});
+
+			if (this.props.onMonthChange) {
+				this.props.onMonthChange(nextMonth, nextYear);
+			}
 		};
 	}
 	onDateSelected(date) {
@@ -297,8 +301,8 @@ class CalendarController extends React.PureComponent {
 					startDate: this.props.startDate,
 					endDate: this.props.endDate
 				} }
-				month={ this.state.month }
-				year={ this.state.year }
+				month={ this.props.month || this.state.month }
+				year={ this.props.year || this.state.year }
 
 				isDateHovered={ this.isDateHovered }
 				isDateFocused={ this.isDateFocused }
