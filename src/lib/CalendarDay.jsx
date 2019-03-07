@@ -4,14 +4,14 @@ import {
 	getClassName
 } from './Utils';
 
-const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover, onFocus, ...props }) => (
+const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover, onFocus, disableKeyboard, ...props }) => (
 	<button
 		ref={ dateButtonRef }
 		role="gridcell"
 		title={ dateLabel }
 		aria-label={ dateLabel }
 		aria-selected={ props.isSelected ? 'true' : 'false' }
-		tabIndex={ props.disableKeyboard === false && props.isSelected ? '0' : '-1' }
+		tabIndex={ disableKeyboard === false && props.isSelected ? '0' : '-1' }
 		className={ `CalendarDay ${getClassName(props)}` }
 		style={ style }
 		onClick={ !props.isDisabled ? (() => onSelect(date)) : undefined }
