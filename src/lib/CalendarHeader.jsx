@@ -10,7 +10,8 @@ const CalendarHeader = ({ month, year='', onBack, onForward, onChangeYear, local
 			className="BackButton"
 			title="Previous Month"
 			onClick={ onBack }
-			disabled={ disabled || !onBack }>
+			disabled={ disabled || !onBack }
+			tabIndex={ disableKeyboard ? '-1' : '0'}>
 			&#10094;
 		</button>
 		<h1 className="MonthDisplay" aria-live="assertive">
@@ -20,13 +21,15 @@ const CalendarHeader = ({ month, year='', onBack, onForward, onChangeYear, local
 				type="number"
 				value={ year }
 				onChange={ onChangeYear }
-				disabled={ disabled } />
+				disabled={ disabled }
+				tabIndex={ disableKeyboard ? '-1' : '0'}/>
 		</h1>
 		<button
 			className="NextButton"
 			title="Next Month"
 			onClick={ onForward }
-			disabled={ disabled || !onForward }>
+			disabled={ disabled || !onForward }
+			tabIndex={ disableKeyboard ? '-1' : '0'}>
 			&#10095;
 		</button>
 	</div>

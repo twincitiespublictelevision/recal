@@ -11,7 +11,7 @@ const CalendarDay = ({ date, dateButtonRef, dateLabel, style, onSelect, onHover,
 		title={ dateLabel }
 		aria-label={ dateLabel }
 		aria-selected={ props.isSelected ? 'true' : 'false' }
-		tabIndex={ props.isSelected ? '0' : '-1' }
+		tabIndex={ props.disableKeyboard === false && props.isSelected ? '0' : '-1' }
 		className={ `CalendarDay ${getClassName(props)}` }
 		style={ style }
 		onClick={ !props.isDisabled ? (() => onSelect(date)) : undefined }

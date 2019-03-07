@@ -318,7 +318,9 @@ class CalendarController extends React.PureComponent {
 				onChangeYear={ this.onChangeYear }
 
 				locale={ this.props.locale }
-				disabled={ this.props.disabled } />
+				disabled={ this.props.disabled }
+
+				disableKeyboard={ this.props.disableKeyboard } />
 		);
 	}
 }
@@ -327,7 +329,8 @@ CalendarController.defaultProps = {
 	locale: 'en-US',
 	isDateHighlighted: (date) => false,
 	isDateEnabled: (date) => true,
-	disabled: false
+	disabled: false,
+	disableKeyboard: false
 };
 
 export const DatePicker = (props) => <CalendarController type={ CalendarType.DatePicker } { ...props } />;

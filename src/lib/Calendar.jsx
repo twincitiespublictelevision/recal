@@ -30,7 +30,9 @@ const Calendar = (props) => {
 		calendarRef,
 		createDateButtonRef,
 		disabled,
-		locale
+		locale,
+
+		disableKeyboard
 	} = props
 
 	// Template for month header (days of week info).
@@ -47,7 +49,8 @@ const Calendar = (props) => {
 				onForward={ onChangeMonth(1) }
 				onChangeYear={ onChangeYear }
 				locale={ locale }
-				disabled={ disabled } />
+				disabled={ disabled }
+				disableKeyboard={ disableKeyboard } />
 			<div className="Calendar" role="grid" ref={ calendarRef }>
 				<div className="head" role="row">
 					{ headerTemplate.map(({ dayName, style }, i) => (
@@ -73,7 +76,8 @@ const Calendar = (props) => {
 							isDisabled={ disabled || !isDateEnabled(date) }
 							onSelect={ onDateSelected }
 							onHover={ onDateHovered }
-							onFocus={ onDateFocused } />
+							onFocus={ onDateFocused }
+							disableKeyboard={ disableKeyboard } />
 					)) }
 				</div>
 			</div>
