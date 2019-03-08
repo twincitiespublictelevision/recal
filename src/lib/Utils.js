@@ -1,7 +1,7 @@
 import getDaysInMonth from 'date-fns/get_days_in_month';
 
 export const getWindow = () => {
-  return Promise((resovle, reject) => {
+  return new Promise((resovle, reject) => {
     if (typeof window !== 'undefined' && window) {
       resolve(window);
     } else {
