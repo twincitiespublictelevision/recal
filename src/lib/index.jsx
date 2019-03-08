@@ -9,6 +9,7 @@ import isBefore from 'date-fns/is_before';
 import isWithinRange from 'date-fns/is_within_range';
 
 import Calendar from './Calendar';
+import { getWindow } from './Utils';
 import './index.css';
 
 const CalendarType = {
@@ -43,10 +44,18 @@ class CalendarController extends React.PureComponent {
 	}
 
 	componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyPress);
+		getWindow()
+			.then(window => {
+				window.addEventListener('keydown', this.handleKeyPress);
+			})
+			.catch(() => {})
 	}
 	componentWillUnmount() {
-		window.removeEventListener('keydown', this.handleKeyPress);
+		getWindow()
+			.then(window => {
+				window.removeEventListener('keydown', this.handleKeyPress);
+			})
+			.catch(() => {})
 	}
 
 	handleKeyPress(event) {
