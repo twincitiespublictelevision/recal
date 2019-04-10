@@ -66,7 +66,6 @@ class CalendarController extends React.PureComponent {
 			nextState[key] = nextProps[key] ? nextProps[key] : prevState[key]; 
 		});
 
-    	// hard-code the month to test -- remove!
 		return nextState;
 	}
 
