@@ -65,6 +65,9 @@ class CalendarController extends React.PureComponent {
 			nextState[key] = nextProps[key] ? nextProps[key] : prevState[key]; 
 		});
 
+		console.log("Next props");
+		console.log(nextProps);
+		console.log(nextState);
 		return nextState;
 	}
 
