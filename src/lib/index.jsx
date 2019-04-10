@@ -50,6 +50,7 @@ class CalendarController extends React.PureComponent {
 			})
 			.catch(() => {})
 	}
+
 	componentWillUnmount() {
 		getWindow()
 			.then(window => {
@@ -65,6 +66,7 @@ class CalendarController extends React.PureComponent {
 			nextState[key] = nextProps[key] ? nextProps[key] : prevState[key]; 
 		});
 
+    	// hard-code the month to test -- remove!
 		return nextState;
 	}
 
@@ -172,6 +174,7 @@ class CalendarController extends React.PureComponent {
 			year: parseInt(event.target.value) || undefined
 		});
 	}
+
 	onChangeMonth(delta) {
 		let { month, year=0 } = this.state;
 		let nextMonth = month + delta;
@@ -190,16 +193,17 @@ class CalendarController extends React.PureComponent {
 		}
 		
 		return () => {
-			this.setState({
+			this.setState(() => ({
 				month: nextMonth,
 				year: nextYear
-			});
+			}));
 
 			if (this.props.onMonthChange) {
 				this.props.onMonthChange(nextMonth, nextYear);
 			}
 		};
 	}
+
 	onDateSelected(date) {
 		const {
 			type,
