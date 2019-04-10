@@ -58,15 +58,15 @@ class CalendarController extends React.PureComponent {
 			.catch(() => {})
 	}
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-	const nextState = Object.assign({}, prevState);
+	static getDerivedStateFromProps(nextProps, prevState) {
+		const nextState = Object.assign({}, prevState);
 
-	Object.keys(prevState).forEach( key => { 
-		nextState[key] = nextProps[key] ? prevState[key]; 
-	});
+		Object.keys(prevState).forEach( key => { 
+			nextState[key] = nextProps[key] ? nextProps[key] : prevState[key]; 
+		});
 
-    return nextState;
-  }
+		return nextState;
+	}
 
 	handleKeyPress(event) {
 		// Ignore key press if this component isn't focused.
